@@ -1,0 +1,56 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HeroImg from '../components/HeroImg.astro';
+import heroImg from '../images/index/wph-hero.webp';
+---
+
+<Layout>
+  <Fragment slot="head">
+    <title>404 - Page Not Found | Wedding Photo Hangover</title>
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="Oops! This page doesn’t exist. Maybe try going back to the homepage or exploring our podcast and blog content." />
+    <meta property="og:title" content="404 - Page Not Found | Wedding Photo Hangover" />
+    <meta property="og:description" content="Oops! This page doesn’t exist. Maybe try going back to the homepage or exploring our podcast and blog content." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://weddinghangover.com/404" />
+    <meta property="og:image" content="/images/global/WPH_Wide_CleanNB.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="404 - Page Not Found | Wedding Photo Hangover" />
+    <meta name="twitter:description" content="Oops! This page doesn’t exist. Maybe try going back to the homepage or exploring our podcast and blog content." />
+    <meta name="twitter:image" content="/images/global/WPH_Wide_CleanNB.webp" />
+    <link rel="preload" as="image" href={heroImg.src} type="image/webp" fetchpriority="high" />
+  </Fragment>
+  <HeroImg 
+    title="OH NO!" 
+    background={heroImg} 
+  />
+  <main>
+    <div class="content-container">
+        <div class="privacy-wrapper">
+            <section>
+                <h1>404 – Page Not Found</h1>
+            </section>
+            <section>
+                <p>
+                    Well this is just outright embarrassing. I don't know if it's more embarrassing for you or more embarrassing for us.
+                </p>
+            </section>
+            <section>
+                <p>  
+                    You somehow navigated to a non-existent page. If you're certain that we should be embarrassed, then send us an email at <a href="mailto:weddingphotohangover@gmail.com?subject=You%20Should%20Be%20Embarrassed&body=This%20is%20embarrassing%20for%20you,%20please%20fix%20this.">weddingphotohangover@gmail.com</a>
+                </p>
+            </section>
+            <section>
+                <p>
+                    If you think this is your mistake, and not ours... then hang your head and return to the homepage, like a coward.
+                </p>
+            </section>
+            <section>
+                <a href="/">
+                    Return to homepage
+                </a>
+            </section>
+        </div>
+    </div>
+  </main>
+</Layout>

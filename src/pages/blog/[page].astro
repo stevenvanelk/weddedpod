@@ -1,0 +1,136 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import type { CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
+import HeroImg from '../../components/HeroImg.astro';
+import { Image } from 'astro:assets';
+import heroImg from '../../images/blog/wph-blog-hero.webp';
+
+export async function getStaticPaths() {
+  const POSTS_PER_PAGE = 10;
+  const allPosts = await getCollection("blog");
+  for (const post of allPosts) {
+    if (typeof post.id !== "string") {
+      console.error("❌ Invalid post.id:", post.id, "TYPE:", typeof post.id);
+      throw new Error("Invalid post.id: not a string");
+    }
+    if (typeof post.slug !== "string") {
+      console.error(
+        "❌ Invalid post.slug:",
+        post.slug,
+        "TYPE:",
+        typeof post.slug
+      );
+      throw new Error("Invalid post.slug: not a string");
+    }
+  }
+  const totalPages = Math.ceil(allPosts.length / POSTS_PER_PAGE);
+
+  return Array.from({ length: totalPages }, (_, i) => ({
+    params: { page: (i + 1).toString() },
+  }));
+}
+
+const POSTS_PER_PAGE = 10;
+const pageParam = Astro.params.page;
+const currentPage = Number(pageParam) || 1;
+
+const allPosts = await getCollection("blog");
+for (const post of allPosts) {
+  if (typeof post.id !== "string") {
+    console.error("❌ Invalid post.id:", post.id, "TYPE:", typeof post.id);
+    throw new Error("Invalid post.id: not a string");
+  }
+  if (typeof post.slug !== "string") {
+    console.error("❌ Invalid post.slug:", post.slug, "TYPE:", typeof post.slug);
+    throw new Error("Invalid post.slug: not a string");
+  }
+}
+const sortedPosts = allPosts.sort(
+  (a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) =>
+    new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+);
+
+const start = (currentPage - 1) * POSTS_PER_PAGE;
+const end = start + POSTS_PER_PAGE;
+const pagePosts = sortedPosts.slice(start, end);
+
+const totalPages = Math.ceil(sortedPosts.length / POSTS_PER_PAGE);
+
+// ✅ Condensed pagination array
+const paginationItems = Array.from({ length: totalPages }, (_, i) => i + 1)
+  .filter(
+    (page) =>
+      page === 1 || page === totalPages || Math.abs(page - currentPage) <= 1
+  )
+  .reduce((acc: (number | "ellipsis")[], page, i, arr) => {
+    if (i > 0 && page - (arr[i - 1] as number) > 1) {
+      acc.push("ellipsis");
+    }
+    acc.push(page);
+    return acc;
+  }, []);
+---
+
+<Layout>
+  <Fragment slot="head">
+    <title>Wedding Photo Hangover Blog – Page {currentPage}</title>
+    <meta name="description" content={`Browse page ${currentPage} of blog posts from the Wedding Photo Hangover podcast. Photography tips, satire, and more.`} />
+    <link rel="canonical" href={`https://weddinghangover.com/blog/${currentPage === 1 ? '' : `${currentPage}/`}`} />
+    <meta property="og:title" content={`Wedding Photo Hangover Blog – Page ${currentPage}`} />
+    <meta property="og:description" content="Explore more posts from the Wedding Photo Hangover podcast blog." />
+    <meta property="og:image" content="/images/global/WPH_Wide_CleanNB.webp" />
+    <link rel="stylesheet" href="/css/blogStyles.css" />
+    <link rel="preload" as="image" href={heroImg.src} type="image/webp" fetchpriority="high" />
+</Fragment>
+  <main>
+    <HeroImg 
+      title="Blog Posts" 
+      background={heroImg} 
+    />
+    <div class="content-container">
+      <h1 class="blog-title">Good Good Words</h1>
+      <div class="blog-list">
+        {pagePosts.map((post: CollectionEntry<"blog">) => (
+            <div class="blog-card">
+              <a href={`/blog/${post.slug}/`}>
+                <img
+                  src={post.data.image}
+                  alt={post.data.title}
+                  class="blog-card-image"
+                />
+              </a>
+              <div class="blog-card-content">
+                <a href={`/blog/${post.slug}/`}>
+                  <h2 class="blog-card-title">{post.data.title}</h2>
+                </a>
+                <p class="blog-card-description">{post.data.description}</p>
+                <a href={`/blog/${post.slug}/`}>
+                  <p class="blog-card-date">
+                    {post.data.pubDate.toLocaleDateString()}
+                  </p>
+                </a>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+      <nav class="pagination">
+        {
+          paginationItems.map((item) =>
+            item === "ellipsis" ? (
+              <span class="pagination-ellipsis">…</span>
+            ) : (
+              <a
+                href={`/blog/${item}/`}
+                class={item === currentPage ? "active" : ""}
+              >
+                {item}
+              </a>
+            )
+          )
+        }
+      </nav>
+    </div>
+  </main>
+</Layout>

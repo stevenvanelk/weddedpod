@@ -1,0 +1,42 @@
+---
+import { Image } from 'astro:assets';
+
+export interface Props {
+  title: string;
+  background: ImageMetadata; // must be imported in page
+  height?: string;
+  overlay?: boolean;
+}
+
+const {
+  title,
+  background,
+  height = '500px',
+  overlay = true
+} = Astro.props;
+---
+
+<section class="hero-two">
+  <Image
+    src={background}
+    alt={title}
+    width={background.width}
+    height={background.height}
+    sizes="100vw"
+    layout="fixed"
+    format="webp"
+    quality={80}
+    class="hero-image"
+    priority
+    fetchpriority="high"
+    decoding="async"
+  />
+
+  {overlay && (
+    <div class="overlay"></div>
+  )}
+
+  <div class="hero-content">
+    <h2 class="hero-title">{title}</h2>
+  </div>
+</section>

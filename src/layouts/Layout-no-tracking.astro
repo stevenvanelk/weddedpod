@@ -4,7 +4,6 @@ import montserratSBUrl from '../fonts/Montserrat-SemiBold.woff2';
 import garamondUrl from '../fonts/EBGaramond-Regular.woff2';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import Cookiebanner from '../components/Cookiebanner.astro';
 ---
 <!doctype html>
 <html lang="en">
@@ -41,15 +40,15 @@ import Cookiebanner from '../components/Cookiebanner.astro';
 		}`}></style>
 		<link rel="stylesheet" href="/css/global.css" />
 		<meta name="generator" content={Astro.generator} />
-		<link rel="alternate" type="application/rss+xml" title="Wedding Photo Hangover Blog" href="/blog/rss.xml" />
-		<link rel="alternate" type="application/rss+xml" title="Wedding Photo Hangover Podcast" href="/episodes/rss.xml" />
+		<meta property="og:title" content="Wedding Photo Hangover" />
+		<meta property="og:description" content="An irreverent look at wedding photography." />
+		<meta property="og:image" content="/images/header/WPH_CleanNB_LOGO.webp" />
+		<meta name="robots" content="noindex">
 	</head>
 	<body>
 		<Header />
-		<Cookiebanner />
 		<slot />
 		<Footer />
-		<script src="/js/cookieBanner.js" defer></script>
 		<script src="/js/script.js" defer></script>
 	</body>
 </html>

@@ -1,0 +1,95 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HeroImg from '../components/HeroImg.astro';
+import { Image } from 'astro:assets';
+import heroImg from '../images/episodes/wph-podcast-hero.webp';
+import { getCollection } from 'astro:content';
+import { slugify } from '../utils/slugify';
+
+const blogPosts = await getCollection('blog');
+const episodePosts = await getCollection('episodes');
+const allPosts = [...blogPosts, ...episodePosts];
+
+const tagCounts = new Map<string, number>();
+const tagNames = new Map<string, string>();
+
+for (const post of allPosts) {
+  if (Array.isArray(post.data.tags)) {
+    for (const tag of post.data.tags) {
+      const slug = slugify(tag);
+      tagCounts.set(slug, (tagCounts.get(slug) ?? 0) + 1);
+      tagNames.set(slug, tag);
+    }
+  }
+}
+
+const sortedTags = Array.from(tagCounts.entries())
+  .sort((a, b) => b[1] - a[1])
+  .map(([slug, count]) => ({
+    slug,
+    name: tagNames.get(slug) ?? slug,
+    count,
+    image: `/images/tags/${slug}.webp`, // fallback handled in markup
+  }));
+---
+
+<Layout title="Browse Tags">
+  <Fragment slot="head">
+  <title>Tags | Wedding Photo Hangover</title>
+  <link rel="canonical" href="https://weddinghangover.com/tags/" />
+  <meta name="description" content="Browse all podcast episodes and blog posts by tag. Find your favorite photography topics and explore the Wedding Photo Hangover archive." />
+  <meta property="og:site_name" content="Wedding Photo Hangover - A Wedding Photography Podcast" />
+  <meta property="og:title" content="Tags | Wedding Photo Hangover" />
+  <meta property="og:description" content="Browse all podcast episodes and blog posts by tag. Find your favorite photography topics and explore the Wedding Photo Hangover archive." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://weddinghangover.com/tags/" />
+  <meta property="og:image" content="/images/global/WPH_Wide_CleanNB.webp" />
+  <meta property="og:image:width" content="1500" />
+  <meta property="og:image:height" content="843" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Tags | Wedding Photo Hangover" />
+  <meta name="twitter:description" content="Browse all podcast episodes and blog posts by tag. Find your favorite photography topics and explore the Wedding Photo Hangover archive." />
+  <meta name="twitter:image" content="/images/global/WPH_Wide_CleanNB.webp" />
+  <meta name="twitter:url" content="https://weddinghangover.com/tags/" />
+  <meta itemprop="name" content="Tags | Wedding Photo Hangover" />
+  <meta itemprop="description" content="Browse all podcast episodes and blog posts by tag. Find your favorite photography topics and explore the Wedding Photo Hangover archive." />
+  <meta itemprop="url" content="https://weddinghangover.com/tags/" />
+  <meta itemprop="image" content="/images/global/WPH_Wide_CleanNB.webp" />
+  <link rel="stylesheet" href="/css/blogStyles.css" />
+  <link rel="preload" as="image" href={heroImg.src} type="image/webp" fetchpriority="high" />
+</Fragment>
+  <main>
+    <HeroImg 
+      title="Explore Tags" 
+      background={heroImg}
+    />
+
+    <div class="content-container">
+      <h1 class="blog-title">All Tags</h1>
+
+      <div class="blog-list">
+        {sortedTags.map(tag => (
+          <div class="blog-card">
+            <a href={`/tags/${tag.slug}/`}>
+              <img
+                src={tag.image}
+                alt={tag.name}
+                class="blog-card-image"
+                onerror="this.src='/images/tags/tag-default.webp'; this.onerror=null;"
+              />
+            </a>
+            <div class="blog-card-content">
+              <a href={`/tags/${tag.slug}/`}>
+                <h2 class="blog-card-title">{tag.name}</h2>
+              </a>
+              <p class="blog-card-description">{tag.count} post{tag.count !== 1 ? 's' : ''}</p>
+              <a href={`/tags/${tag.slug}/`}>
+                <p class="blog-card-date">View posts →</p>
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </main>
+</Layout>

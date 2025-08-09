@@ -1,0 +1,753 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Garamond', Georgia, 'Times New Roman', Times, serif;
+    background-color: white;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    /* Ensures there's no margin around the body */
+    padding: 0;
+    /* Ensures there's no padding around the body */
+}
+
+/* Header Styling */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.25rem 1.5rem;
+    background-color: transparent;
+    /* Transparent initially */
+    box-shadow: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    width: 100%;
+    height: 70px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    /* Smooth transition for hiding and background color */
+}
+
+header.scrolled {
+    background: linear-gradient(to bottom, #1b3649, #142536);
+}
+
+header .logo-container {
+    display: flex;
+    align-items: center;
+}
+
+header img {
+    max-width: 120px;
+    height: auto;
+}
+
+.menu-toggle {
+    display: none;
+}
+
+/* Navigation Styling */
+nav {
+    display: flex;
+    align-items: center;
+    /* Vertically center the navigation links */
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: flex-end;
+    /* Align nav items to the right */
+    gap: 2rem;
+    padding: 0;
+}
+
+/* Navigation Links */
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    font-weight: normal;
+    font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+    transition: color 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
+    color: #e0e0e0;
+}
+
+/* Hero Section */
+.hero {
+    background-image: url('/images/index/wedding-hangover-hero-image.webp');
+    background-position: center;
+    background-size: cover;
+    min-height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    position: relative;
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+    height: 80px;
+}
+
+.hero-two {
+    min-height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+    height: 80px;
+}
+
+.hero-two .hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+.hero-two .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    /* optional overlay */
+    z-index: 1;
+}
+
+.hero-two .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+/* Hero Title */
+.hero-title {
+    font-size: 3rem;
+    /* or whatever looks best */
+    font-weight: 600;
+    font-style: italic;
+    font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+    text-transform: uppercase;
+    color: white !important;
+    letter-spacing: 2px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 1rem;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Overlay for Hero Section */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+/* Section Styling */
+section {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: none;
+    text-align: center;
+}
+
+/* Max width for content */
+section p {
+    font-size: 1.125rem;
+    color: #555;
+    line-height: 1.8;
+}
+
+h3 {
+    font-size: 2rem;
+    font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 400;
+    color: #333;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+/* Button Styling */
+a {
+    display: inline-block;
+    background-color: transparent;
+    text-decoration: underline;
+    font-weight: 300;
+    font-family: 'Garamond', Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.125rem;
+    color: #555;
+    line-height: 1.8;
+}
+
+p a {
+    display: inline;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: black;
+    background-color: transparent;
+}
+
+.button-link {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    margin-top: 0.25rem;
+    background-color: #1b3649;
+    color: white;
+    text-decoration: none;
+    font-weight: 400;
+    font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.button-link:hover {
+    background-color: #142536;
+    color: white;
+    text-decoration: none;
+}
+
+.button-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    align-items: center;
+}
+
+.button-stack .button-link {
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    padding: 0.75rem 1.5rem;
+    margin: 0 auto;
+    background-color: #1b3649;
+    color: white;
+    text-decoration: none;
+    font-weight: 400;
+    font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-align: center;
+}
+
+.content-container {
+    max-width: 1000px;
+    /* You can adjust this width */
+    margin: 0 auto;
+    /* Centers the content horizontally */
+    padding: 0 1rem;
+    /* Adds some padding to the left and right */
+}
+
+.content-container-2 {
+    max-width: 800px;
+    /* You can adjust this width */
+    margin: 0 auto;
+    /* Centers the content horizontally */
+    padding: 0;
+    /* Adds some padding to the left and right */
+}
+
+/* Footer Styling */
+footer {
+    height: 100px;
+    width: 100%;
+    text-align: center;
+    color: white;
+    margin-top: 10px;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+footer p {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+}
+
+footer a:hover {
+    text-decoration: underline;
+    color: white;
+    background-color: transparent;
+}
+
+.footer-social-section {
+    text-align: center;
+    align-items: center;
+    width: 100%;
+    background: #666666;
+    color: white;
+    padding: 0.5rem 0;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+.footer-social-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.05rem;
+    margin: 0 auto;
+    /* ← THIS is what centers the whole flex container */
+    max-width: max-content;
+    /* ensures it hugs content and centers properly */
+}
+
+.footer-social-heading {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.25;
+    font-weight: 400;
+    text-transform: none;
+    color: white;
+}
+
+.footer-social-icons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.social-icon {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    vertical-align: middle;
+    fill: white;
+    color: white;
+    transition: transform 0.2s ease-in-out;
+}
+
+.social-icon:hover {
+    /* Slight zoom effect */
+    fill: #F0F0F0;
+    color: #F0F0F0;
+}
+
+.footer-social-container .social-icon {
+    margin: 0 0.5rem;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.footer-content {
+    text-align: center;
+    width: 100%;
+    background: linear-gradient(to bottom, #142536, #1b3649);
+    box-sizing: border-box;
+    height: 60px;
+    line-height: 60px;
+}
+
+.footer-content p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 60px;
+}
+
+.footer-content p a {
+    margin: 0;
+    font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+}
+
+.footer-social-container h3 {
+    color: white;
+    font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 400;
+}
+
+/* Logo & Title */
+.logo-container {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    gap: 15px;
+    height: 100%;
+}
+
+.logo-container a {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.logo-container img {
+    display: block;
+    max-height: 100%;
+}
+
+.logo-container h2 {
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+}
+
+.logo {
+    height: 50px;
+    width: auto;
+    display: block;
+}
+
+/* Card Styling */
+.card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 4rem auto;
+    padding: 1rem;
+    flex-wrap: wrap;
+}
+
+.card-support {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    gap: 2rem;
+    max-width: 1000px;
+    padding: 1rem;
+    flex-wrap: wrap;
+}
+
+.card img {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.card-image {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.card-content {
+    flex: 1;
+    min-width: 250px;
+}
+
+.card-content h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+    color: #666666;
+    font-weight: 400;
+}
+
+.card-content p {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.card-content .button-link {
+    display: inline-block;
+    background: #1b3649;
+    color: #fff;
+    text-decoration: none;
+    padding: 0.6em 1.2em;
+    border-radius: 6px;
+    transition: background 0.3s ease;
+}
+
+.card-content .button-link:hover {
+    background: #142536;
+}
+
+.card-right {
+    flex-direction: row-reverse;
+}
+
+h1 {
+    font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+    color: #666666;
+    font-weight: 400;
+    font-size: 2rem;
+}
+
+h2 {
+    font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+    color: #666666;
+    font-weight: 400;
+}
+
+/* Privacy Page Styling */
+
+.privacy-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.privacy-wrapper ul {
+    padding-left: 1rem;
+    text-align: left;
+    color: #666666;
+    font-family: 'Garamond', Georgia, 'Times New Roman', Times, serif;
+    font-size: 18px;
+}
+
+.privacy-wrapper li {
+    color: #666666;
+    font-family: 'Garamond', Georgia, 'Times New Roman', Times, serif;
+    line-height: 1.8;
+    font-size: 18px;
+}
+
+.privacy-wrapper p {
+    padding-left: 0;
+    text-align: left;
+    color: #666666;
+    font-family: 'Garamond', Georgia, 'Times New Roman', Times, serif;
+    font-size: 18px;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    line-break: strict;
+}
+
+.privacy-wrapper a {
+    padding-left: 0;
+    text-align: left;
+    color: #666666;
+    font-family: 'Garamond', Georgia, 'Times New Roman', Times, serif;
+    font-size: 18px;
+    text-decoration: none;
+    font-weight: 400;
+    margin: 0;
+}
+
+.privacy-wrapper a:hover {
+    text-decoration: underline;
+    color: black;
+}
+
+.privacy-wrapper p a {
+    display: inline;
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+.privacy-wrapper h1 {
+    font-size: 1.8rem;
+    margin-bottom: 0.05rem;
+    font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+    color: black;
+    font-weight: 400;
+}
+
+.privacy-wrapper h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+    font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+    color: black;
+    font-weight: 400;
+}
+
+.privacy-header {
+    padding: 1rem 1rem 1rem 1rem;
+}
+
+.privacy-wrapper section {
+    margin-bottom: 1rem;
+}
+
+.profile-image {
+    display: block;
+    max-width: 800px;
+    width: 100%;
+    height: auto;
+    margin: 0 auto 1rem auto;
+    border-radius: 8px;
+}
+
+/* Search Styling */
+.search-container {
+    max-width: 800px;
+    margin: 4rem auto;
+    padding: 0 1rem;
+}
+
+.search-text {
+    text-align: center !important;
+    margin-bottom: 2rem !important;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 1;
+    }
+
+    section p {
+        font-size: 1rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+        font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+    }
+
+    iframe {
+        width: 100%;
+        max-width: 500px;
+        height: auto;
+    }
+
+    nav ul {
+        flex-direction: column;
+        /* Stack the nav items vertically on mobile */
+        gap: 0.25rem;
+    }
+
+    .nav-links {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+        background-color: rgba(20, 37, 54, 0.95);
+        /* semi-transparent dark */
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0.25rem;
+        z-index: 999;
+        /* make sure it’s on top */
+        transition: opacity 0.3s ease;
+    }
+
+    .nav-links.nav-active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+        cursor: pointer;
+        color: white;
+        font-size: 2rem;
+        z-index: 1000;
+    }
+
+    body.nav-open {
+        overflow: hidden;
+    }
+
+    .card,
+    .card-right {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .card img {
+        max-width: 100%;
+    }
+
+    .footer-social-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-social-heading {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 0.25rem;
+    }
+
+    .footer-social-icons {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .profile-image {
+        max-width: 80%;
+        margin-bottom: 1.5rem;
+    }
+}

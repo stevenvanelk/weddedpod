@@ -1,0 +1,38 @@
+---
+export interface Props {
+  alt: string;
+  heading: string;
+  image: string;
+  imageSmall: string;
+  imageMedium: string;
+}
+
+const {
+  alt,
+  heading,
+  image,
+  imageSmall,
+  imageMedium
+} = Astro.props;
+---
+
+<section class="hero-three">
+  <picture>
+    <source srcset={image} media="(min-width: 769px)" type="image/webp" />
+    <source srcset={imageMedium} media="(min-width: 641px)" type="image/webp" />
+    <source srcset={imageSmall} media="(max-width: 480px)" type="image/webp" />
+    <img
+      src={image}
+      alt={alt}
+      fetchpriority="high"
+      decoding="async"
+      loading="eager"
+      class="hero-image"
+    />
+
+  <div class="hero-text">
+    <div class="hero-content">
+      <h2 class="hero-title">{heading}</h2>
+    </div>
+  </div>
+</section>
