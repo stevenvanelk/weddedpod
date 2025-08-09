@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /privacy-policy/
+Disallow: /404
+
+Sitemap: https://weddinghangover.com/sitemap-index.xml
