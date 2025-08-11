@@ -1,174 +1,229 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import HeroImgNew from "../components/HeroImgNew.astro";
 ---
+
 <Layout>
-  {/* HERO / INTRO */}
-  <section id="intro" aria-labelledby="intro-title">
-    <div class="intro-hero">
-      <!-- Simple image strip (replace with your own carousel later if you want) -->
-      <div class="intro-images">
-        <img src="https://static.showit.co/1600/qbKCiY6DR_GJ-tgwvI0Y-g/41149/jennifer_van_elk_favorites-0014.jpg" alt="Jennifer Van Elk Favorites 0014" />
-        <img src="https://static.showit.co/1600/ujo8eee9RQSRp7G6PRP6IQ/41149/jennifer_van_elk_favorites-0024.jpg" alt="Jennifer Van Elk Favorites 0024" />
-        <img src="https://static.showit.co/1600/3qqu5H-vToqJq5mhGEta4w/41149/jennifer_van_elk_favorites-0020.jpg" alt="Jennifer Van Elk Favorites 0020" />
-        <img src="https://static.showit.co/1600/beOou3jzQp-cK5e3LaDamg/41149/jennifer_van_elk_favorites-0025.jpg" alt="Jennifer Van Elk Favorites 0025" />
-      </div>
+  <Fragment slot="head">
+    <title>Wedded – A Wedding Planning Podcast</title>
+    <link rel="canonical" href="https://weddedpod.com/" />
+    <meta
+      name="description"
+      content="Join wedding pros Jenn and Steve Van Elk as they share candid, funny, and practical advice to help you plan the wedding you actually want. From insider tips to industry secrets, Wedded keeps it real."
+    />
+    <meta
+      property="og:site_name"
+      content="Wedded – A Wedding Planning Podcast"
+    />
+    <meta property="og:title" content="Wedded – A Wedding Planning Podcast" />
+    <meta
+      property="og:description"
+      content="Join wedding pros Jenn and Steve Van Elk as they share candid, funny, and practical advice to help you plan the wedding you actually want. From insider tips to industry secrets, Wedded keeps it real."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://weddedpod.com/" />
+    <meta property="og:image" content="/images/global/wedded_og_image.webp" />
+    <meta property="og:image:width" content="1500" />
+    <meta property="og:image:height" content="843" />
 
-      <div class="intro-copy">
-        <h2 id="intro-title">Wedded Podcast</h2>
-        <p class="intro-with">with</p>
-        <p class="intro-hosts">Jenn &amp; Steven Van Elk</p>
-      </div>
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Wedded – A Wedding Planning Podcast" />
+    <meta
+      name="twitter:description"
+      content="Join wedding pros Jenn and Steve Van Elk as they share candid, funny, and practical advice to help you plan the wedding you actually want. From insider tips to industry secrets, Wedded keeps it real."
+    />
+    <meta name="twitter:image" content="/images/global/wedded_og_image.webp" />
+    <meta name="twitter:url" content="https://weddedpod.com/" />
+
+    <meta itemprop="name" content="Wedded – A Wedding Planning Podcast" />
+    <meta
+      itemprop="description"
+      content="Join wedding pros Jenn and Steve Van Elk as they share candid, funny, and practical advice to help you plan the wedding you actually want. From insider tips to industry secrets, Wedded keeps it real."
+    />
+    <meta itemprop="url" content="https://weddedpod.com/" />
+    <meta itemprop="image" content="/images/global/wedded_og_image.webp" />
+
+    <link
+      rel="preload"
+      as="image"
+      href="/images/index/wedded-hero-medium.webp"
+      imageSrcSet="
+      /images/index/wedded-hero-small.webp 480w,
+      /images/index/wedded-hero-medium.webp 768w,
+      /images/index/wedded-hero-large.webp 1920w
+    "
+      imagesizes="100vw"
+    />
+  </Fragment>
+
+  <main>
+    <HeroImgNew
+      alt="Wedded Podcast"
+      heading="Plan the Wedding You Actually Want"
+      image="/images/index/wedded_header.webp"
+      imageMedium="/images/index/wedded_header.webp"
+      imageSmall="/images/index/wedded_header.webp"
+    />
+    <div class="content-container">
+      <section>
+        <div>
+          <!-- Simple image strip (replace with your own carousel later if you want) -->
+          <div>
+            <img
+              src="https://static.showit.co/1600/qbKCiY6DR_GJ-tgwvI0Y-g/41149/jennifer_van_elk_favorites-0014.jpg"
+              alt="Jennifer Van Elk Favorites 0014"
+            />
+            <img
+              src="https://static.showit.co/1600/ujo8eee9RQSRp7G6PRP6IQ/41149/jennifer_van_elk_favorites-0024.jpg"
+              alt="Jennifer Van Elk Favorites 0024"
+            />
+            <img
+              src="https://static.showit.co/1600/3qqu5H-vToqJq5mhGEta4w/41149/jennifer_van_elk_favorites-0020.jpg"
+              alt="Jennifer Van Elk Favorites 0020"
+            />
+            <img
+              src="https://static.showit.co/1600/beOou3jzQp-cK5e3LaDamg/41149/jennifer_van_elk_favorites-0025.jpg"
+              alt="Jennifer Van Elk Favorites 0025"
+            />
+          </div>
+
+          <div>
+            <h2>Wedded Podcast</h2>
+            <p>with</p>
+            <p>Jenn &amp; Steven Van Elk</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div>
+          <p>
+            We're Steven &amp; Jenn Van Elk. We've been married since 2008.
+            That's a long time in doggy years, so we are pretty much an old
+            married couple. If you are an avid listener, you probably realize we
+            are lovers of nerdy things, beer, and the outdoors... and not to get
+            too blue, but we're also lovers. Our love language is to make fun of
+            ourselves and each other and for that reason we are both full of
+            joy. We have two kids and two businesses. Our kids, Nora &amp; Iain
+            have no idea that we podcast but I'm sure if they knew they'd be
+            severely embarrassed. Besides making sure to make our kids feel
+            understandingly mortified of their nerdy parents, we are running
+            Jennifer Van Elk Photography, destination and local wedding
+            photography, located in Indianapolis, and Bespoke Tone, which is a
+            post-processing service for photographers, videographers, and
+            podcasters.
+            <br />
+            For those who want to dig deeper, feel free to explore our story at the
+            link below!
+          </p>
+
+          <p>
+            <a
+              href="http://jennifervanelk.com/photos-of-us"
+              target="_blank"
+              rel="noopener">More</a
+            >
+          </p>
+        </div>
+      </section>
+
+      {/* RECENT EPISODES */}
+      <section>
+        <div>
+          <iframe
+            src="https://anchor.fm/wedded/embed/episodes/Ep--007---Lessons-Weve-Learned-in-10-Years-of-Marriage-e30nnm/a-a984rc"
+            height="102"
+            width="400"
+            frameborder="0"
+            scrolling="no"
+            title="Lessons We've Learned in 10 Years of Marriage"></iframe>
+          <iframe
+            src="https://anchor.fm/wedded/embed/episodes/Ep--005---Even-Wedding-Planners-Need-a-Wedding-Planner-with-Jillian-Zilch-of-Frame-Worthy-Events-e2ulbh/a-a8sj3u"
+            height="102"
+            width="400"
+            frameborder="0"
+            scrolling="no"
+            title="Even Wedding Planners Need a Wedding Planner (with Jillian Zilch)"
+          ></iframe>
+          <iframe
+            src="https://anchor.fm/wedded/embed/episodes/Ep--001---What-Should-You-Do-When-Youre-First-Engaged-e2omfp/a-a7r6kg"
+            height="102"
+            width="400"
+            frameborder="0"
+            scrolling="no"
+            title="What Should You Do When You're First Engaged?"></iframe>
+          <iframe
+            src="https://anchor.fm/wedded/embed/episodes/Ep--004---Should-You-Hire-a-Planner-or-Coordinator-for-Your-Wedding-e2sat0/a-a8dkkv"
+            height="102"
+            width="400"
+            frameborder="0"
+            scrolling="no"
+            title="Should You Hire a Planner or Coordinator?"></iframe>
+        </div>
+
+        <div class="listen-links" aria-label="Find our podcast on">
+          <p class="listen-intro">Find our podcast on:</p>
+          <ul>
+            <li>
+              <a
+                href="https://itunes.apple.com/us/podcast/wedded/id1447111184?mt=2"
+                target="_blank"
+                rel="noopener">Apple Podcast</a
+              >
+            </li>
+            <li>
+              <a href="https://anchor.fm/wedded" target="_blank" rel="noopener"
+                >Anchor</a
+              >
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <div>
+          <p>
+            Two things we are confident in: marriage and wedding planning. And
+            what do you know, we're professional wedding photographers who
+            happen to be married! Not only did we successfully plan our own
+            wedding, we've helped hundreds of other couples do the same. We
+            aren't wedding planning experts in every category but we do know
+            many talented people who are, so you'll hear wise leading wedding
+            industry experts talk about how to best plan your wedding.
+          </p>
+          <p>
+            If you just love all things wedding and marriage, we are your best
+            stop for your daily commute or something to listen to while you are
+            around the house. Jenn loves to help her couples with wedding
+            planning. There is so much information out there that it's
+            exhausting just trying to figure out where to look. Steven loves to
+            make people laugh and tell stories, so it's no surprise that he
+            loves to host podcasts.
+          </p>
+          <p>
+            This podcast came about to help couples plan for their wedding and
+            plan for married life. We both enjoy listening to podcasts and hope
+            that this can be one you look forward to a few times a month.
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <div>
+          <img
+            src="https://static.showit.co/2400/jOyZD_yBQry6fXXswmciMw/41149/d-017.jpg"
+            alt="Background"
+            loading="lazy"
+          />
+          <div class="contact-overlay">
+            <h2 id="contact-title">ohHEY</h2>
+            <p class="contact-sub">contact us</p>
+            <p class="contact-cta">
+              <a href="mailto:weddedpod@gmail.com">Send it</a>
+            </p>
+          </div>
+        </div>
+      </section>
     </div>
-  </section>
-
-  {/* ABOUT */}
-  <section id="about" aria-labelledby="about-title">
-    <header class="about-header">
-      <p class="kicker">meet the voices</p>
-      <h2 id="about-title">Love &amp; Marriage</h2>
-    </header>
-
-    <div class="about-body">
-      <p>
-        We're Steven &amp; Jenn Van Elk. We've been married since 2008. That's a long time in doggy years, so we are pretty much an old married couple. If you are an avid listener, you probably realize we are lovers of nerdy things, beer, and the outdoors... and not to get too blue, but we're also lovers. Our love language is to make fun of ourselves and each other and for that reason we are both full of joy. We have two kids and two businesses. Our kids, Nora &amp; Iain have no idea that we podcast but I'm sure if they knew they'd be severely embarrassed. Besides making sure to make our kids feel understandingly mortified of their nerdy parents, we are running Jennifer Van Elk Photography, destination and local wedding photography, located in Indianapolis, and Bespoke Tone, which is a post-processing service for photographers, videographers, and podcasters.
-        <br/>
-        For those who want to dig deeper, feel free to explore our story at the link below!
-      </p>
-
-      <p class="about-cta">
-        <a href="http://jennifervanelk.com/photos-of-us" target="_blank" rel="noopener">More</a>
-      </p>
-    </div>
-  </section>
-
-  {/* RECENT EPISODES */}
-  <section id="galleries" aria-labelledby="episodes-title">
-    <header class="episodes-header">
-      <h3 id="episodes-title">Recent Episodes</h3>
-      <p class="episodes-sub">Click and listen, love buddies!</p>
-    </header>
-
-    <div class="episode-embeds">
-      <iframe
-        src="https://anchor.fm/wedded/embed/episodes/Ep--007---Lessons-Weve-Learned-in-10-Years-of-Marriage-e30nnm/a-a984rc"
-        height="102"
-        width="400"
-        frameborder="0"
-        scrolling="no"
-        title="Lessons We've Learned in 10 Years of Marriage"
-      />
-      <iframe
-        src="https://anchor.fm/wedded/embed/episodes/Ep--005---Even-Wedding-Planners-Need-a-Wedding-Planner-with-Jillian-Zilch-of-Frame-Worthy-Events-e2ulbh/a-a8sj3u"
-        height="102"
-        width="400"
-        frameborder="0"
-        scrolling="no"
-        title="Even Wedding Planners Need a Wedding Planner (with Jillian Zilch)"
-      />
-      <iframe
-        src="https://anchor.fm/wedded/embed/episodes/Ep--001---What-Should-You-Do-When-Youre-First-Engaged-e2omfp/a-a7r6kg"
-        height="102"
-        width="400"
-        frameborder="0"
-        scrolling="no"
-        title="What Should You Do When You're First Engaged?"
-      />
-      <iframe
-        src="https://anchor.fm/wedded/embed/episodes/Ep--004---Should-You-Hire-a-Planner-or-Coordinator-for-Your-Wedding-e2sat0/a-a8dkkv"
-        height="102"
-        width="400"
-        frameborder="0"
-        scrolling="no"
-        title="Should You Hire a Planner or Coordinator?"
-      />
-    </div>
-
-    <div class="listen-links" aria-label="Find our podcast on">
-      <p class="listen-intro">Find our podcast on:</p>
-      <ul>
-        <li><a href="https://itunes.apple.com/us/podcast/wedded/id1447111184?mt=2" target="_blank" rel="noopener">Apple Podcast</a></li>
-        <li><a href="https://anchor.fm/wedded" target="_blank" rel="noopener">Anchor</a></li>
-        <li><a href="https://www.stitcher.com/podcast/anchor-podcasts/wedded" target="_blank" rel="noopener">Stitcher</a></li>
-      </ul>
-    </div>
-  </section>
-
-  {/* ABOUT THE PODCAST */}
-  <section id="details" aria-labelledby="about-podcast-title">
-    <header class="details-header">
-      <p class="kicker">About the Podcast</p>
-      <h2 id="about-podcast-title">Wedded &amp; Wise</h2>
-    </header>
-
-    <div class="details-body">
-      <p>
-        Two things we are confident in: marriage and wedding planning. And what do you know, we're professional wedding photographers who happen to be married! Not only did we successfully plan our own wedding, we've helped hundreds of other couples do the same. We aren't wedding planning experts in every category but we do know many talented people who are, so you'll hear wise leading wedding industry experts talk about how to best plan your wedding.
-      </p>
-      <p>
-        If you just love all things wedding and marriage, we are your best stop for your daily commute or something to listen to while you are around the house. Jenn loves to help her couples with wedding planning. There is so much information out there that it's exhausting just trying to figure out where to look. Steven loves to make people laugh and tell stories, so it's no surprise that he loves to host podcasts.
-      </p>
-      <p>
-        This podcast came about to help couples plan for their wedding and plan for married life. We both enjoy listening to podcasts and hope that this can be one you look forward to a few times a month.
-      </p>
-    </div>
-  </section>
-
-  {/* CONTACT (simple CTA; no form logic) */}
-  <section id="contact" aria-labelledby="contact-title">
-    <div class="contact-hero">
-      <img
-        src="https://static.showit.co/2400/jOyZD_yBQry6fXXswmciMw/41149/d-017.jpg"
-        alt="Background"
-        loading="lazy"
-      />
-      <div class="contact-overlay">
-        <h2 id="contact-title">ohHEY</h2>
-        <p class="contact-sub">contact us</p>
-        <p class="contact-cta">
-          <a href="mailto:weddedpod@gmail.com">Send it</a>
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <style>
-    /* Minimal structure; style freely or swap for Tailwind/CSS Modules */
-
-    section { padding: 4rem 1rem; }
-    .intro-hero { position: relative; display: grid; gap: 1rem; }
-    .intro-images { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: .5rem; }
-    .intro-images img { width: 100%; height: 200px; object-fit: cover; }
-    .intro-copy { text-align: center; }
-    .intro-copy h2 { font-size: clamp(2rem, 4vw, 4rem); margin: 0.25rem 0; }
-    .intro-with { margin: 0; opacity: .8; }
-    .intro-hosts { margin: .25rem 0 0; font-weight: 600; }
-
-    .about-header .kicker,
-    .details-header .kicker { text-transform: uppercase; letter-spacing: .08em; opacity: .8; }
-    .about-header h2,
-    .details-header h2 { margin: .25rem 0 1rem; font-size: clamp(1.75rem, 3vw, 3rem); }
-
-    .about-body { max-width: 70ch; margin: 0 auto; display: grid; gap: 1rem; }
-    .about-cta a { display: inline-block; padding: .5rem 1rem; border: 1px solid currentColor; text-decoration: none; border-radius: .5rem; }
-
-    .episodes-header { text-align: center; margin-bottom: 1rem; }
-    .episodes-header h3 { font-size: clamp(1.25rem, 2.5vw, 2rem); margin: 0; }
-    .episodes-sub { margin: .25rem 0 0; opacity: .8; }
-
-    .episode-embeds { display: grid; gap: 1rem; justify-content: center; }
-    .episode-embeds iframe { max-width: 100%; }
-
-    .listen-links { text-align: center; margin-top: 1rem; }
-    .listen-intro { margin-bottom: .5rem; font-weight: 600; }
-    .listen-links ul { display: inline-flex; gap: 1rem; padding: 0; margin: 0; list-style: none; }
-
-    .details-body { max-width: 70ch; margin: 0 auto; display: grid; gap: 1rem; }
-
-    .contact-hero { position: relative; overflow: hidden; border-radius: .75rem; }
-    .contact-hero img { width: 100%; height: 320px; object-fit: cover; display: block; filter: brightness(.7); }
-    .contact-overlay { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; color: white; gap: .25rem; }
-    .contact-overlay h2 { margin: 0; font-size: clamp(2rem, 4vw, 3rem); }
-    .contact-sub { margin: 0; opacity: .9; }
-    .contact-cta a { display: inline-block; margin-top: .5rem; padding: .5rem 1rem; background: white; color: black; text-decoration: none; border-radius: .5rem; }
-  </style>
+  </main>
 </Layout>
