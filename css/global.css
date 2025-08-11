@@ -338,6 +338,26 @@ iframe {
     /* Adds some padding to the left and right */
 }
 
+/* Index Page Photo Row */
+.photo-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    /* tighten on mobile if you want */
+    width: 100%;
+}
+
+.photo-row img {
+    width: 100%;
+    height: clamp(80px, 22vh, 240px);
+    /* one uniform row height */
+    object-fit: cover;
+    /* crops to fill each cell */
+    display: block;
+    border-radius: 6px;
+    /* optional */
+}
+
 /* Footer Styling */
 footer {
     width: 100%;
@@ -1030,5 +1050,11 @@ h2 {
     .profile-image {
         max-width: 80%;
         margin-bottom: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .photo-row {
+        gap: 4px;
     }
 }
