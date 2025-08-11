@@ -1,0 +1,123 @@
+---
+import Layout from "../layouts/Layout.astro";
+import HeroImg from "../components/HeroImg.astro";
+import heroImg from "../images/index/wedded-hero.webp";
+---
+
+<Layout>
+  <Fragment slot="head">
+    <title>Privacy Policy | Wedded</title>
+    <meta
+      name="description"
+      content="Read the privacy policy for Wedded to learn how we collect and protect your information, including details on cookies, analytics, and third-party services."
+    />
+    <link rel="canonical" href="https://weddedpod.com/privacy-policy" />
+
+    <meta property="og:title" content="Privacy Policy | Wedded" />
+    <meta
+      property="og:description"
+      content="How we collect and use your information, including cookies and analytics. Read our privacy policy to learn more."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://weddedpod.com/privacy-policy" />
+    <meta property="og:image" content="/images/index/wedded-hero.webp" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Privacy Policy | Wedded" />
+    <meta
+      name="twitter:description"
+      content="How we collect and use your information, including cookies and analytics. Read our privacy policy to learn more."
+    />
+    <meta name="twitter:image" content="/images/index/wedded-hero.webp" />
+    <link
+      rel="preload"
+      as="image"
+      href={heroImg.src}
+      type="image/webp"
+      fetchpriority="high"
+    />
+  </Fragment>
+
+  <main>
+    <HeroImg title="Wedded Privacy Policy" background={heroImg} />
+    <div class="content-container">
+      <div class="privacy-wrapper">
+        <section style="margin-top: 0.25rem !important;">
+          <h1 class="privacy-header">Privacy Policy</h1>
+          <p
+            style="text-align: center !important; font-style: italic !important;"
+          >
+            Effective Date: July 20, 2017
+          </p>
+        </section>
+        <section>
+          <h2>1. Introduction</h2>
+          <p>
+            Welcome to Redwood Lane. Your privacy is important to us. This
+            Privacy Policy outlines how we collect, use, and protect your
+            personal information.
+          </p>
+        </section>
+        <section>
+          <h2>2. Information We Collect</h2>
+          <ul>
+            <li>
+              Google Analytics: We use Google Analytics to track website usage
+              and improve user experience. Google may collect anonymized data,
+              such as your IP address, browser type, and time spent on pages.
+            </li>
+            <li>
+              Cookies: This site uses cookies to enhance functionality and
+              analyze traffic. You can manage cookie preferences in your browser
+              settings.
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>3. How We Use Your Information</h2>
+          <p>We use the data collected to:</p>
+          <ul>
+            <li>Improve website performance and user experience.</li>
+            <li>Analyze traffic and visitor behavior.</li>
+          </ul>
+        </section>
+        <section>
+          <h2>4. Third-Party Services</h2>
+          <p>
+            We may use third-party services like Google Analytics. Their privacy
+            policies govern how they collect and process data. You can opt-out
+            of Google Analytics tracking by visiting <a
+              href="https://tools.google.com/dlpage/gaoptout"
+              target="_blank">this page</a
+            >.
+          </p>
+        </section>
+        <section>
+          <h2>5. Your Rights and Choices</h2>
+          <p>
+            Here's what you can do to protect yourself from being tracked on
+            this site and on other sites:
+          </p>
+          <ul>
+            <li>Disable cookies in your browser settings.</li>
+            <li>Use browser extensions to block tracking scripts.</li>
+          </ul>
+        </section>
+        <section>
+          <h2>6. Changes to This Policy</h2>
+          <p>
+            We may update this Privacy Policy from time to time. Any changes
+            will be posted on this page.
+          </p>
+        </section>
+        <section>
+          <h2>7. Contact Us</h2>
+          <p>
+            If you have any questions about this Privacy Policy, you can contact
+            us at: <a href="mailto:weddedpod@gmail.com">weddedpod@gmail.com</a>
+          </p>
+        </section>
+      </div>
+    </div>
+  </main>
+</Layout>
