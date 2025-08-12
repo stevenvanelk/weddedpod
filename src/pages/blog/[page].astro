@@ -74,22 +74,22 @@ const paginationItems = Array.from({ length: totalPages }, (_, i) => i + 1)
 
 <Layout>
   <Fragment slot="head">
-    <title>Wedding Photo Hangover Blog – Page {currentPage}</title>
-    <meta name="description" content={`Browse page ${currentPage} of blog posts from the Wedding Photo Hangover podcast. Photography tips, satire, and more.`} />
-    <link rel="canonical" href={`https://weddinghangover.com/blog/${currentPage === 1 ? '' : `${currentPage}/`}`} />
-    <meta property="og:title" content={`Wedding Photo Hangover Blog – Page ${currentPage}`} />
-    <meta property="og:description" content="Explore more posts from the Wedding Photo Hangover podcast blog." />
-    <meta property="og:image" content="/images/global/WPH_Wide_CleanNB.webp" />
+    <title>Wedded Podcast – Page {currentPage}</title>
+    <meta name="description" content={`Browse page ${currentPage} of podcast posts from the Wedded podcast.`} />
+    <link rel="canonical" href={`https://weddedpod.com/blog/${currentPage === 1 ? '' : `${currentPage}/`}`} />
+    <meta property="og:title" content={`Wedded Podcast – Page ${currentPage}`} />
+    <meta property="og:description" content="Explore more posts from the Wedded podcast." />
+    <meta property="og:image" content="/images/index/jennifer_van_elk_favorites-0025.webp" />
     <link rel="stylesheet" href="/css/blogStyles.css" />
     <link rel="preload" as="image" href={heroImg.src} type="image/webp" fetchpriority="high" />
 </Fragment>
   <main>
     <HeroImg 
-      title="Blog Posts" 
+      title="Podcast Posts" 
       background={heroImg} 
     />
     <div class="content-container">
-      <h1 class="blog-title">Good Good Words</h1>
+      <h1 class="blog-title">Episodes</h1>
       <div class="blog-list">
         {pagePosts.map((post: CollectionEntry<"blog">) => (
             <div class="blog-card">

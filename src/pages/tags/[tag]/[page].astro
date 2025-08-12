@@ -4,15 +4,11 @@ import HeroImg from '../../../components/HeroImg.astro';
 import { getCollection } from 'astro:content';
 import { slugify } from '../../../utils/slugify';
 import tagSpecialGuest from '../../../images/tags/special-guest.webp';
-import tagSatire from '../../../images/tags/satire.webp';
-import tagPhotographyTips from '../../../images/tags/photography-tips.webp';
 import tagHolidaySpecial from '../../../images/tags/holiday-special.webp';
-import heroImg from '../../../images/episodes/wph-podcast-hero.webp';
+import heroImg from '../../../images/blog/wph-blog-hero.webp';
 
 const tagHeroMap = {
   'special-guest': tagSpecialGuest,
-  'satire': tagSatire,
-  'photography-tips': tagPhotographyTips,
   'holiday-special': tagHolidaySpecial
 };
 
@@ -84,12 +80,12 @@ const heroImage = tagHeroMap[tagSlug as keyof typeof tagHeroMap] ?? heroImg;
 
 <Layout>
   <Fragment slot="head">
-    <title>#{originalTag} – Wedding Photo Hangover – Page {currentPage}</title>
-    <meta name="description" content={`Browse page ${currentPage} of posts tagged with "${originalTag}" from the Wedding Photo Hangover podcast.`} />
-    <link rel="canonical" href={`https://weddinghangover.com/tags/${tagSlug}/${currentPage === 1 ? '' : `${currentPage}/`}`} />
-    <meta property="og:title" content={`Posts tagged "${originalTag}" – Wedding Photo Hangover`} />
-    <meta property="og:description" content={`Photography podcast episodes and blog posts tagged with "${originalTag}".`} />
-    <meta property="og:image" content="/images/global/WPH_Wide_CleanNB.webp" />
+    <title>#{originalTag} – Wedded Podcast – Page {currentPage}</title>
+    <meta name="description" content={`Browse page ${currentPage} of posts tagged with "${originalTag}" from the Wedded podcast.`} />
+    <link rel="canonical" href={`https://weddedpod.com/tags/${tagSlug}/${currentPage === 1 ? '' : `${currentPage}/`}`} />
+    <meta property="og:title" content={`Posts tagged "${originalTag}" – Wedded`} />
+    <meta property="og:description" content={`Podcast episodes and blog tagged with "${originalTag}".`} />
+    <meta property="og:image" content="/images/global/wedded_logo.webp" />
     <link rel="stylesheet" href="/css/blogStyles.css" />
     <link rel="preload" as="image" href={heroImg.src} type="image/webp" fetchpriority="high" />
   </Fragment>
