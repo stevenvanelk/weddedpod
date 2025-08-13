@@ -1,21 +1,23 @@
 ---
-import Layout from '../../../layouts/Layout.astro';
-import HeroImg from '../../../components/HeroImg.astro';
-import { getCollection } from 'astro:content';
-import { slugify } from '../../../utils/slugify';
-import tagSpecialGuest from '../../../images/tags/special-guest.webp';
-import tagHolidaySpecial from '../../../images/tags/holiday-special.webp';
-import heroImg from '../../../images/blog/wph-blog-hero.webp';
+import Layout from "../../../layouts/Layout.astro";
+import HeroImg from "../../../components/HeroImg.astro";
+import { getCollection } from "astro:content";
+import { slugify } from "../../../utils/slugify";
+import tagSpecialGuest from "../../../images/tags/special-guest.webp";
+import tagHolidaySpecial from "../../../images/tags/holiday-special.webp";
+import tagWeddingTips from "../../../images/tags/wedding-tips.webp";
+import heroImg from "../../../images/blog/wph-blog-hero.webp";
 
 const tagHeroMap = {
-  'special-guest': tagSpecialGuest,
-  'holiday-special': tagHolidaySpecial
+  "special-guest": tagSpecialGuest,
+  "holiday-special": tagHolidaySpecial,
+  "wedding-tips": tagWeddingTips,
 };
 
 export async function getStaticPaths() {
   const POSTS_PER_PAGE = 10;
-  const blogPosts = await getCollection('blog');
-  const episodePosts = await getCollection('episodes');
+  const blogPosts = await getCollection("blog");
+  const episodePosts = await getCollection("episodes");
   const allPosts = [...blogPosts, ...episodePosts];
 
   const tagMap = new Map<string, string>();
@@ -31,13 +33,14 @@ export async function getStaticPaths() {
   const paths = [];
   for (const [slug, original] of tagMap.entries()) {
     const taggedPosts = allPosts.filter(
-      post => Array.isArray(post.data.tags) && post.data.tags.includes(original)
+      (post) =>
+        Array.isArray(post.data.tags) && post.data.tags.includes(original)
     );
     const totalPages = Math.ceil(taggedPosts.length / POSTS_PER_PAGE);
 
     for (let i = 1; i <= totalPages; i++) {
       paths.push({
-        params: { tag: slug, page: i.toString() }
+        params: { tag: slug, page: i.toString() },
       });
     }
   }
@@ -50,8 +53,8 @@ const currentPage = Number(Astro.params.page) || 1;
 const POSTS_PER_PAGE = 10;
 
 const allPosts = [
-  ...await getCollection('episodes'),
-  ...await getCollection('blog')
+  ...(await getCollection("episodes")),
+  ...(await getCollection("blog")),
 ];
 
 // Map slug back to original tag name
@@ -67,8 +70,14 @@ for (const post of allPosts) {
 const originalTag = tagMap.get(tagSlug) ?? tagSlug;
 
 const taggedPosts = allPosts
-  .filter(post => Array.isArray(post.data.tags) && post.data.tags.includes(originalTag))
-  .sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime());
+  .filter(
+    (post) =>
+      Array.isArray(post.data.tags) && post.data.tags.includes(originalTag)
+  )
+  .sort(
+    (a, b) =>
+      new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+  );
 
 const totalPages = Math.ceil(taggedPosts.length / POSTS_PER_PAGE);
 const start = (currentPage - 1) * POSTS_PER_PAGE;
@@ -81,60 +90,87 @@ const heroImage = tagHeroMap[tagSlug as keyof typeof tagHeroMap] ?? heroImg;
 <Layout>
   <Fragment slot="head">
     <title>#{originalTag} – Wedded Podcast – Page {currentPage}</title>
-    <meta name="description" content={`Browse page ${currentPage} of posts tagged with "${originalTag}" from the Wedded podcast.`} />
-    <link rel="canonical" href={`https://weddedpod.com/tags/${tagSlug}/${currentPage === 1 ? '' : `${currentPage}/`}`} />
-    <meta property="og:title" content={`Posts tagged "${originalTag}" – Wedded`} />
-    <meta property="og:description" content={`Podcast episodes and blog tagged with "${originalTag}".`} />
+    <meta
+      name="description"
+      content={`Browse page ${currentPage} of posts tagged with "${originalTag}" from the Wedded podcast.`}
+    />
+    <link
+      rel="canonical"
+      href={`https://weddedpod.com/tags/${tagSlug}/${currentPage === 1 ? "" : `${currentPage}/`}`}
+    />
+    <meta
+      property="og:title"
+      content={`Posts tagged "${originalTag}" – Wedded`}
+    />
+    <meta
+      property="og:description"
+      content={`Podcast episodes and blog tagged with "${originalTag}".`}
+    />
     <meta property="og:image" content="/images/global/wedded_logo.webp" />
     <link rel="stylesheet" href="/css/blogStyles.css" />
-    <link rel="preload" as="image" href={heroImg.src} type="image/webp" fetchpriority="high" />
+    <link
+      rel="preload"
+      as="image"
+      href={heroImg.src}
+      type="image/webp"
+      fetchpriority="high"
+    />
   </Fragment>
   <main>
-    <HeroImg 
-      title={`Posts tagged with "${originalTag}"`} 
+    <HeroImg
+      title={`Posts tagged with "${originalTag}"`}
       background={heroImage}
     />
 
     <div class="content-container">
       <h1 class="tag-header">#{originalTag}</h1>
-      {taggedPosts.length === 0 ? (
-        <p>No posts found with this tag.</p>
-      ) : (
-        <div class="blog-list">
-          {paginatedPosts.map(post => (
-            <div class="blog-card">
-              <a href={`/${post.collection}/${post.slug}/`}>
-                <img src={post.data.image} alt={post.data.title} class="blog-card-image" />
-              </a>
-              <div class="blog-card-content">
+      {
+        taggedPosts.length === 0 ? (
+          <p>No posts found with this tag.</p>
+        ) : (
+          <div class="blog-list">
+            {paginatedPosts.map((post) => (
+              <div class="blog-card">
                 <a href={`/${post.collection}/${post.slug}/`}>
-                  <h2 class="blog-card-title">{post.data.title}</h2>
+                  <img
+                    src={post.data.image}
+                    alt={post.data.title}
+                    class="blog-card-image"
+                  />
                 </a>
-                <p class="blog-card-description">{post.data.description}</p>
-                <a href={`/${post.collection}/${post.slug}/`}>
-                  <p class="blog-card-date">{post.data.pubDate.toLocaleDateString()}</p>
-                </a>
+                <div class="blog-card-content">
+                  <a href={`/${post.collection}/${post.slug}/`}>
+                    <h2 class="blog-card-title">{post.data.title}</h2>
+                  </a>
+                  <p class="blog-card-description">{post.data.description}</p>
+                  <a href={`/${post.collection}/${post.slug}/`}>
+                    <p class="blog-card-date">
+                      {post.data.pubDate.toLocaleDateString()}
+                    </p>
+                  </a>
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
-      )}
+            ))}
+          </div>
+        )
+      }
     </div>
-    {totalPages > 1 && (
-  <nav class="pagination">
-    {Array.from({ length: totalPages }).map((_, i) => {
-      const pageNum = i + 1;
-      const isActive = pageNum === currentPage;
-      const pageHref = `/tags/${tagSlug}/${pageNum}/`;
+    {
+      totalPages > 1 && (
+        <nav class="pagination">
+          {Array.from({ length: totalPages }).map((_, i) => {
+            const pageNum = i + 1;
+            const isActive = pageNum === currentPage;
+            const pageHref = `/tags/${tagSlug}/${pageNum}/`;
 
-      return (
-        <a href={pageHref} class={isActive ? 'active' : ''}>
-          {pageNum}
-        </a>
-      );
-    })}
-  </nav>
-)}
-
+            return (
+              <a href={pageHref} class={isActive ? "active" : ""}>
+                {pageNum}
+              </a>
+            );
+          })}
+        </nav>
+      )
+    }
   </main>
 </Layout>

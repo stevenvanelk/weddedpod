@@ -4,11 +4,11 @@ import type { CollectionEntry } from 'astro:content';
 import { getCollection } from 'astro:content';
 import HeroImg from '../../components/HeroImg.astro';
 import { Image } from 'astro:assets';
-import heroImg from '../../images/blog/wph-blog-hero.webp';
+import heroImg from '../../images/episodes/wph-podcast-hero.webp';
 
 export async function getStaticPaths() {
   const POSTS_PER_PAGE = 10;
-  const allPosts = await getCollection("blog");
+  const allPosts = await getCollection("episodes");
   for (const post of allPosts) {
     if (typeof post.id !== "string") {
       console.error("❌ Invalid post.id:", post.id, "TYPE:", typeof post.id);
@@ -35,7 +35,7 @@ const POSTS_PER_PAGE = 10;
 const pageParam = Astro.params.page;
 const currentPage = Number(pageParam) || 1;
 
-const allPosts = await getCollection("blog");
+const allPosts = await getCollection("episodes");
 for (const post of allPosts) {
   if (typeof post.id !== "string") {
     console.error("❌ Invalid post.id:", post.id, "TYPE:", typeof post.id);
@@ -47,7 +47,7 @@ for (const post of allPosts) {
   }
 }
 const sortedPosts = allPosts.sort(
-  (a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) =>
+  (a: CollectionEntry<"episodes">, b: CollectionEntry<"episodes">) =>
     new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
 );
 
@@ -74,26 +74,26 @@ const paginationItems = Array.from({ length: totalPages }, (_, i) => i + 1)
 
 <Layout>
   <Fragment slot="head">
-    <title>Wedded Blog – Page {currentPage}</title>
-    <meta name="description" content={`Browse page ${currentPage} of blog posts from the Wedded podcast. Wedding Planning tips and more.`} />
-    <link rel="canonical" href={`https://weddedpod.com/blog/${currentPage === 1 ? '' : `${currentPage}/`}`} />
-    <meta property="og:title" content={`Wedded Blog – Page ${currentPage}`} />
-    <meta property="og:description" content="Explore more posts from the Wedded podcast blog." />
-    <meta property="og:image" content="/images/global/wedded_logo.webp" />
+    <title>Wedded Podcast – Page {currentPage}</title>
+    <meta name="description" content={`Browse page ${currentPage} of podcast posts from the Wedded podcast.`} />
+    <link rel="canonical" href={`https://weddedpod.com/episodes/${currentPage === 1 ? '' : `${currentPage}/`}`} />
+    <meta property="og:title" content={`Wedded Podcast – Page ${currentPage}`} />
+    <meta property="og:description" content="Explore more posts from the Wedded podcast." />
+    <meta property="og:image" content="/images/index/jennifer_van_elk_favorites-0025.webp" />
     <link rel="stylesheet" href="/css/blogStyles.css" />
     <link rel="preload" as="image" href={heroImg.src} type="image/webp" fetchpriority="high" />
 </Fragment>
   <main>
     <HeroImg 
-      title="Blog Posts" 
+      title="Podcast Posts" 
       background={heroImg} 
     />
     <div class="content-container">
-      <h1 class="blog-title">Wedding Planning Tips</h1>
+      <h1 class="blog-title">Episodes</h1>
       <div class="blog-list">
-        {pagePosts.map((post: CollectionEntry<"blog">) => (
+        {pagePosts.map((post: CollectionEntry<"episodes">) => (
             <div class="blog-card">
-              <a href={`/blog/${post.slug}/`}>
+              <a href={`/episodes/${post.slug}/`}>
                 <img
                   src={post.data.image}
                   alt={post.data.title}
@@ -101,11 +101,11 @@ const paginationItems = Array.from({ length: totalPages }, (_, i) => i + 1)
                 />
               </a>
               <div class="blog-card-content">
-                <a href={`/blog/${post.slug}/`}>
+                <a href={`/episodes/${post.slug}/`}>
                   <h2 class="blog-card-title">{post.data.title}</h2>
                 </a>
                 <p class="blog-card-description">{post.data.description}</p>
-                <a href={`/blog/${post.slug}/`}>
+                <a href={`/episodes/${post.slug}/`}>
                   <p class="blog-card-date">
                     {post.data.pubDate.toLocaleDateString()}
                   </p>
@@ -122,7 +122,7 @@ const paginationItems = Array.from({ length: totalPages }, (_, i) => i + 1)
               <span class="pagination-ellipsis">…</span>
             ) : (
               <a
-                href={`/blog/${item}/`}
+                href={`/episodes/${item}/`}
                 class={item === currentPage ? "active" : ""}
               >
                 {item}

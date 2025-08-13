@@ -3,13 +3,13 @@ import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 
 export async function GET() {
-  const blogPosts = await getCollection('blog');
+  const blogPosts = await getCollection('episodes');
 
   return rss({
-    title: 'Wedded Blog',
-    description: 'Latest blog posts from Wedded',
+    title: 'Wedded Podcast Episodes',
+    description: 'Latest podcast posts from Wedded',
     site: 'https://weddedpod.com',
-    items: blogPosts.map((post: CollectionEntry<'blog'>) => ({
+    items: blogPosts.map((post: CollectionEntry<'episodes'>) => ({
       title: post.data.title,
       pubDate: new Date(post.data.pubDate),
       link: `/${post.slug}`,
