@@ -5,6 +5,7 @@ import type { CollectionEntry } from "astro:content";
 import Hero from "../../components/Hero.astro";
 import SEO from "../../components/SEO.astro";
 import { slugify } from "../../utils/slugify";
+import { formatDateUTC } from "../../utils/formatDate";
 
 const slug = Array.isArray(Astro.params.slug)
   ? Astro.params.slug.join("/")
@@ -30,14 +31,16 @@ export async function getStaticPaths() {
 const allPosts = (await getCollection("blog")) as CollectionEntry<"blog">[];
 
 // Sort posts by date descending (newest first)
-allPosts.sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime());
+allPosts.sort(
+  (a, b) =>
+    new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+);
 
 // Find the index of the current post
 const currentIndex = allPosts.findIndex((p) => p.slug === post.slug);
 
 const newerPost = allPosts[currentIndex - 1]; // Newer post (earlier in the list)
 const olderPost = allPosts[currentIndex + 1]; // Older post (later in the list)
-
 ---
 
 <Layout>
@@ -56,36 +59,44 @@ const olderPost = allPosts[currentIndex + 1]; // Older post (later in the list)
     <div class="content-container-blog">
       <div class="rich-content">
         <h1 class="post-title">{post.data.title}</h1>
-        <p class="date-published">{post.data.pubDate.toLocaleDateString()}</p>
+        <p class="date-published">{formatDateUTC(post.data.pubDate)}</p>
         <article>
           <Content />
         </article>
-        {post.data.tags && post.data.tags.length > 0 && (
-          <div class="post-tags">
-            <h3>Tags:</h3>
-            <div class="tag-list">
-              {post.data.tags.map((tag: string) => (
-                <a href={`/tags/${slugify(tag)}/`} rel="tag">#{tag}</a>
-              ))}
+        {
+          post.data.tags && post.data.tags.length > 0 && (
+            <div class="post-tags">
+              <h3>Tags:</h3>
+              <div class="tag-list">
+                {post.data.tags.map((tag: string) => (
+                  <a href={`/tags/${slugify(tag)}/`} rel="tag">
+                    #{tag}
+                  </a>
+                ))}
+              </div>
             </div>
-          </div>
-        )}
+          )
+        }
         <nav class="post-navigation">
           <div class="nav-col">
-            {newerPost && (
-              <a href={`/blog/${newerPost.slug}`} class="nav-link newer">
-                <span class="nav-label">← Newer Post</span>
-                <span class="nav-title">{newerPost.data.title}</span>
-              </a>
-            )}
+            {
+              newerPost && (
+                <a href={`/blog/${newerPost.slug}`} class="nav-link newer">
+                  <span class="nav-label">← Newer Post</span>
+                  <span class="nav-title">{newerPost.data.title}</span>
+                </a>
+              )
+            }
           </div>
           <div class="nav-col">
-            {olderPost && (
-              <a href={`/blog/${olderPost.slug}`} class="nav-link older">
-                <span class="nav-label">Older Post →</span>
-                <span class="nav-title">{olderPost.data.title}</span>
-              </a>
-            )}
+            {
+              olderPost && (
+                <a href={`/blog/${olderPost.slug}`} class="nav-link older">
+                  <span class="nav-label">Older Post →</span>
+                  <span class="nav-title">{olderPost.data.title}</span>
+                </a>
+              )
+            }
           </div>
         </nav>
       </div>

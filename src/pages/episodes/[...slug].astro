@@ -5,6 +5,7 @@ import type { CollectionEntry } from "astro:content";
 import Hero from "../../components/Hero.astro";
 import SEO from "../../components/SEO.astro";
 import { slugify } from "../../utils/slugify";
+import { formatDateUTC } from "../../utils/formatDate";
 
 const slug = Array.isArray(Astro.params.slug)
   ? Astro.params.slug.join("/")
@@ -62,7 +63,7 @@ const olderPost = allPosts[currentIndex + 1]; // Older post (later in the list)
     <div class="content-container-blog">
       <div class="rich-content">
         <h1 class="post-title">{post.data.title}</h1>
-        <p class="date-published">{post.data.pubDate.toLocaleDateString()}</p>
+        <p class="date-published">{formatDateUTC(post.data.pubDate)}</p>
         <article>
           <Content />
         </article>

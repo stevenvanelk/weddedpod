@@ -950,6 +950,26 @@ h2 {
     display: block;
 }
 
+/* Center the title + subtitle inside the text column */
+.spotify-embed-wrapper .spotify-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* vertical center within the 80px row */
+    align-items: center;
+    /* horizontal center */
+    text-align: center;
+    /* center the text itself */
+    min-width: 0;
+    /* keeps ellipsis working in flex layouts */
+}
+
+/* (optional) tighten lines a bit */
+.spotify-embed-wrapper .spotify-title,
+.spotify-embed-wrapper .spotify-subtitle {
+    line-height: 1.2;
+}
+
 /* Mobile responsiveness */
 @media (max-width: 768px) {
     .hero-title {

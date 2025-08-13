@@ -5,6 +5,7 @@ import { getCollection } from 'astro:content';
 import HeroImg from '../../components/HeroImg.astro';
 import { Image } from 'astro:assets';
 import heroImg from '../../images/blog/wph-blog-hero.webp';
+import { formatDateUTC } from "../../utils/formatDate";
 
 export async function getStaticPaths() {
   const POSTS_PER_PAGE = 10;
@@ -89,7 +90,7 @@ const paginationItems = Array.from({ length: totalPages }, (_, i) => i + 1)
         			</a>
         			<p class="blog-card-description">{post.data.description}</p>
         			<a href={`/blog/${post.slug}/`}>
-          				<p class="blog-card-date">{post.data.pubDate.toLocaleDateString()}</p>
+          				<p class="blog-card-date">{formatDateUTC(post.data.pubDate)}</p>
         			</a>
       			</div>
     		</div>
