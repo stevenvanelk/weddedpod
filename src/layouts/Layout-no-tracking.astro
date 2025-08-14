@@ -1,21 +1,40 @@
 ---
-import montserratUrl from '../fonts/Montserrat-Regular.woff2';
-import montserratSBUrl from '../fonts/Montserrat-SemiBold.woff2';
-import garamondUrl from '../fonts/EBGaramond-Regular.woff2';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import montserratUrl from "../fonts/Montserrat-Regular.woff2";
+import montserratSBUrl from "../fonts/Montserrat-SemiBold.woff2";
+import lemonTuesdayUrl from "../fonts/LemonTuesday.woff2";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 ---
-<!doctype html>
+
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<slot name="head" />
-		<link rel="icon" type="image/x-icon" href="/images/global/favicon.ico" />
-		<link rel="preload" href={montserratUrl} as="font" type="font/woff2" crossorigin>
-	    <link rel="preload" href={garamondUrl} as="font" type="font/woff2" crossorigin>
-		<link rel="preload" href={montserratSBUrl} as="font" type="font/woff2" crossorigin>
-		<style set:html={`@font-face {
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <slot name="head" />
+    <link rel="icon" type="image/x-icon" href="/images/global/favicon.ico" />
+    <link
+      rel="preload"
+      href={montserratUrl}
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href={lemonTuesdayUrl}
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href={montserratSBUrl}
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <style
+      set:html={`@font-face {
 			font-family: 'Montserrat';
 			src: url('${montserratUrl}') format('woff2');
 			font-weight: 400;
@@ -30,25 +49,29 @@ import Footer from '../components/Footer.astro';
 			font-style: normal;
 			font-display: swap;
 		}
-
+		
 		@font-face {
-			font-family: 'Garamond';
-			src: url('${garamondUrl}') format('woff2');
+			font-family: 'Lemon Tuesday';
+			src: url('${lemonTuesdayUrl}') format('woff2');
 			font-weight: 400;
 			font-style: normal;
 			font-display: swap;
-		}`}></style>
-		<link rel="stylesheet" href="/css/global.css" />
-		<meta name="generator" content={Astro.generator} />
-		<meta property="og:title" content="Wedding Photo Hangover" />
-		<meta property="og:description" content="An irreverent look at wedding photography." />
-		<meta property="og:image" content="/images/header/WPH_CleanNB_LOGO.webp" />
-		<meta name="robots" content="noindex">
-	</head>
-	<body>
-		<Header />
-		<slot />
-		<Footer />
-		<script src="/js/script.js" defer></script>
-	</body>
+		}`}
+    ></style>
+    <link rel="stylesheet" href="/css/global.css" />
+    <meta name="generator" content={Astro.generator} />
+    <meta property="og:title" content="Wedded" />
+    <meta
+      property="og:description"
+      content="An irreverent look at wedding photography."
+    />
+    <meta property="og:image" content="/images/header/wedded_logo.webp" />
+    <meta name="robots" content="noindex" />
+  </head>
+  <body>
+    <Header />
+    <slot />
+    <Footer />
+    <script src="/js/script.js" defer></script>
+  </body>
 </html>

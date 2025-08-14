@@ -143,7 +143,7 @@ figcaption a {
 }
 
 .date-published {
-    font-family: 'Garamond', Georgia, 'Times New Roman', Times, serif !important;
+    font-family: 'Times New Roman', Times, serif !important;
     background-color: transparent !important;
     color: #333 !important;
     line-height: 1.6 !important;
@@ -221,6 +221,7 @@ figcaption a {
 
 .blog-card-title {
     font-size: 1.25rem;
+    font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
     font-weight: bold;
     margin-bottom: 0.5rem;
     display: -webkit-box;
@@ -249,6 +250,7 @@ figcaption a {
 .blog-title {
     text-align: center;
     font-size: 2.25rem;
+    font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
     margin-bottom: 2rem;
     margin-top: 2rem;
 }
@@ -397,7 +399,7 @@ figcaption a {
     margin-top: 1rem;
     margin-bottom: .75rem;
     color: #333;
-    font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'Lemon Tuesday', 'Helvetica Neue', Arial, sans-serif;
 }
 
 /* Post Tags section under blog posts */

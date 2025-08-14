@@ -10,7 +10,7 @@ body {
 }
 
 body {
-    font-family: 'Garamond', Georgia, 'Times New Roman', Times, serif;
+    font-family: 'Times New Roman', Times, serif;
     background-color: white;
     color: #333;
     line-height: 1.6;
@@ -187,7 +187,7 @@ nav ul li a:hover {
     /* or whatever looks best */
     font-weight: 600;
     font-style: italic;
-    font-family: 'Montserrat-SemiBold', 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'Lemon Tuesday', 'Helvetica Neue', Arial, sans-serif;
     text-transform: uppercase;
     color: white !important;
     letter-spacing: 2px;
@@ -237,7 +237,7 @@ section p {
 
 h3 {
     font-size: 2rem;
-    font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'Lemon Tuesday', 'Helvetica Neue', Arial, sans-serif;
     font-weight: 400;
     color: #333;
     margin-bottom: 1rem;
@@ -250,7 +250,7 @@ a {
     background-color: transparent;
     text-decoration: underline;
     font-weight: 400;
-    font-family: 'Garamond', Georgia, 'Times New Roman', Times, serif;
+    font-family: 'Times New Roman', Times, serif;
     font-size: 1.125rem;
     color: #555;
     line-height: 1.8;
@@ -270,7 +270,7 @@ a:hover {
     display: inline-block;
     padding: 0.75rem 1.5rem;
     margin-top: 0.25rem;
-    background-color: #1b3649;
+    background-color: #982830;
     color: white;
     text-decoration: none;
     font-weight: 400;
@@ -280,7 +280,7 @@ a:hover {
 }
 
 .button-link:hover {
-    background-color: #142536;
+    background-color: #7b1f24;
     color: white;
     text-decoration: none;
 }
@@ -299,7 +299,7 @@ a:hover {
     max-width: 600px;
     padding: 0.75rem 1.5rem;
     margin: 0 auto;
-    background-color: #1b3649;
+    background-color: #982830;
     color: white;
     text-decoration: none;
     font-weight: 400;
@@ -598,7 +598,7 @@ footer a:hover {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
-    font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'Lemon Tuesday', 'Helvetica Neue', Arial, sans-serif;
 }
 
 .logo {
@@ -654,7 +654,7 @@ footer a:hover {
 .card-content h3 {
     font-size: 1.8rem;
     margin-bottom: 0.5rem;
-    font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'Lemon Tuesday', 'Helvetica Neue', Arial, sans-serif;
     color: #666666;
     font-weight: 400;
 }
@@ -666,7 +666,7 @@ footer a:hover {
 
 .card-content .button-link {
     display: inline-block;
-    background: #1b3649;
+    background: #982830;
     color: #fff;
     text-decoration: none;
     padding: 0.6em 1.2em;
@@ -675,7 +675,7 @@ footer a:hover {
 }
 
 .card-content .button-link:hover {
-    background: #142536;
+    background: #7b1f24;
 }
 
 .card-right {
@@ -683,14 +683,14 @@ footer a:hover {
 }
 
 h1 {
-    font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'Lemon Tuesday', 'Helvetica Neue', Arial, sans-serif;
     color: #666666;
     font-weight: 400;
     font-size: 2rem;
 }
 
 h2 {
-    font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'Lemon Tuesday', 'Helvetica Neue', Arial, sans-serif;
     color: #666666;
     font-weight: 400;
 }
@@ -709,13 +709,13 @@ h2 {
     padding-left: 1rem;
     text-align: left;
     color: #666666;
-    font-family: 'Garamond', Georgia, 'Times New Roman', Times, serif;
+    font-family: 'Times New Roman', Times, serif;
     font-size: 18px;
 }
 
 .privacy-wrapper li {
     color: #666666;
-    font-family: 'Garamond', Georgia, 'Times New Roman', Times, serif;
+    font-family: 'Times New Roman', Times, serif;
     line-height: 1.8;
     font-size: 18px;
 }
@@ -724,7 +724,7 @@ h2 {
     padding-left: 0;
     text-align: left;
     color: #666666;
-    font-family: 'Garamond', Georgia, 'Times New Roman', Times, serif;
+    font-family: 'Times New Roman', Times, serif;
     font-size: 18px;
     overflow-wrap: break-word;
     word-break: break-word;
@@ -735,7 +735,7 @@ h2 {
     padding-left: 0;
     text-align: left;
     color: #666666;
-    font-family: 'Garamond', Georgia, 'Times New Roman', Times, serif;
+    font-family: 'Times New Roman', Times, serif;
     font-size: 18px;
     text-decoration: none;
     font-weight: 400;
@@ -1002,7 +1002,7 @@ h2 {
 
     h3 {
         font-size: 1.5rem;
-        font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+        font-family: 'Lemon Tuesday', 'Helvetica Neue', Arial, sans-serif;
     }
 
     iframe {
