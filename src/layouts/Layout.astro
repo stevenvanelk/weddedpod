@@ -1,6 +1,5 @@
 ---
 import montserratUrl from "../fonts/Montserrat-Regular.woff2";
-import montserratSBUrl from "../fonts/Montserrat-SemiBold.woff2";
 import lemonTuesdayUrl from "../fonts/LemonTuesday.woff2";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
@@ -28,26 +27,11 @@ import Cookiebanner from "../components/Cookiebanner.astro";
       type="font/woff2"
       crossorigin
     />
-    <link
-      rel="preload"
-      href={montserratSBUrl}
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
     <style
       set:html={`@font-face {
 			font-family: 'Montserrat';
 			src: url('${montserratUrl}') format('woff2');
 			font-weight: 400;
-			font-style: normal;
-			font-display: swap;
-		}
-
-		@font-face {
-			font-family: 'Montserrat-SemiBold';
-			src: url('${montserratSBUrl}') format('woff2');
-			font-weight: 600;
 			font-style: normal;
 			font-display: swap;
 		}
