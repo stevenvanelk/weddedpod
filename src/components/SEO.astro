@@ -9,13 +9,13 @@ export interface Props {
 
 const {
   title,
-  description = "Wedding Photo Hangover — A wedding photography podcast and blog.",
-  image = "https://weddinghangover.com/images/global/WPH_Wide_CleanNB.webp",
+  description = "Wedded — A wedding planning podcast and blog.",
+  image = "https://weddedpod.com/images/global/wedded_logo.webp",
   pubDate,
   canonicalUrl = Astro.url.pathname,
 } = Astro.props;
 
-const siteUrl = "https://weddinghangover.com";
+const siteUrl = "https://weddedpod.com";
 const fullUrl = `${siteUrl}${canonicalUrl}`;
 ---
 
@@ -25,7 +25,7 @@ const fullUrl = `${siteUrl}${canonicalUrl}`;
   <link rel="canonical" href={fullUrl} />
 
   <!-- Open Graph -->
-  <meta property="og:site_name" content="Wedding Photo Hangover - A Wedding Photography Podcast" />
+  <meta property="og:site_name" content="Wedded - A Wedding Planning Podcast" />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:image" content={image} />
